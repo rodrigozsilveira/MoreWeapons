@@ -5,5 +5,11 @@
   "item.moreweapons.iron_scythe": "Iron Scythe",
   "item.moreweapons.golden_scythe": "Golden Scythe",
   "item.moreweapons.diamond_scythe": "Diamond Scythe",
-  "item.moreweapons.netherite_scythe": "Netherite Scythe"
+  "item.moreweapons.netherite_scythe": "Netherite Scythe",
+  "item.moreweapons.wooden_dagger": "Wooden Dagger",
+  "item.moreweapons.stone_dagger": "Stone Dagger",
+  "item.moreweapons.iron_dagger": "Iron Dagger",
+  "item.moreweapons.golden_dagger": "Golden Dagger",
+  "item.moreweapons.diamond_dagger": "Diamond Dagger",
+  "item.moreweapons.netherite_dagger": "Netherite Dagger"
 }

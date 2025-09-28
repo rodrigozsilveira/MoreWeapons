@@ -22,12 +22,12 @@ public class ModItemGroups {
             );
 
             content.addAfter(ModItems.NETHERITE_SCYTHE,
-                    ModItems.WOODEN_SPEAR,
-                    ModItems.STONE_SPEAR,
-                    ModItems.IRON_SPEAR,
-                    ModItems.GOLDEN_SPEAR,
-                    ModItems.DIAMOND_SPEAR,
-                    ModItems.NETHERITE_SPEAR
+                    ModItems.WOODEN_DAGGER,
+                    ModItems.STONE_DAGGER,
+                    ModItems.IRON_DAGGER,
+                    ModItems.GOLDEN_DAGGER,
+                    ModItems.DIAMOND_DAGGER,
+                    ModItems.NETHERITE_DAGGER
             );
         });
     }

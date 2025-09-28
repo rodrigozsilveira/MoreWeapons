@@ -4,5 +4,11 @@
   "item.moreweapons.iron_scythe": "Foice de Ferro",
   "item.moreweapons.golden_scythe": "Foice de Ouro",
   "item.moreweapons.diamond_scythe": "Foice de Diamante",
-  "item.moreweapons.netherite_scythe": "Foice de Netherita"
+  "item.moreweapons.netherite_scythe": "Foice de Netherita",
+  "item.moreweapons.wooden_dagger": "Adaga de Madeira",
+  "item.moreweapons.stone_dagger": "Adaga de Pedra",
+  "item.moreweapons.iron_dagger": "Adaga de Ferro",
+  "item.moreweapons.golden_dagger": "Adaga de Ouro",
+  "item.moreweapons.diamond_dagger": "Adaga de Diamante",
+  "item.moreweapons.netherite_dagger": "Adaga de Netherita"
 }
