@@ -4,6 +4,8 @@ import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ratao.moreweapons.item.ModItemGroups;
+import ratao.moreweapons.item.ModItems;
 
 public class MoreWeapons implements ModInitializer {
 	public static final String MOD_ID = "moreweapons";
@@ -11,7 +13,7 @@ public class MoreWeapons implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
-		LOGGER.info("Hello Fabric world!");
+        ModItems.registerModItems();
+        ModItemGroups.registerItemGroups();
 	}
 }
