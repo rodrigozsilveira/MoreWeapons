@@ -8,6 +8,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ratao.moreweapons.datagen.ModItemTagProvider;
 import ratao.moreweapons.effect.BleedingStatusEffect;
 import ratao.moreweapons.effect.ModEffects;
 import ratao.moreweapons.item.ModItemGroups;

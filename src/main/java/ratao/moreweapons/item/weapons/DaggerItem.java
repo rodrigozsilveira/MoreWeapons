@@ -4,11 +4,13 @@ import net.minecraft.block.Blocks;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.ToolComponent;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
@@ -18,7 +20,7 @@ import ratao.moreweapons.effect.ModEffects;
 
 import java.util.List;
 
-public class DaggerItem extends ToolItem {
+public class DaggerItem extends SwordItem {
 
     private final boolean canBleed;
 
@@ -89,5 +91,16 @@ public class DaggerItem extends ToolItem {
             ));
         }
         return super.postHit(stack, target, attacker);
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return true; // permite encantamento na mesa
+    }
+
+    @Override
+    public int getEnchantability() {
+        return this.getMaterial().getEnchantability();
+        // você pode usar ToolMaterial.getEnchantability()
     }
 }
