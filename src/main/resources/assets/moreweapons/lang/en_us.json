@@ -11,5 +11,11 @@
   "item.moreweapons.iron_dagger": "Iron Dagger",
   "item.moreweapons.golden_dagger": "Golden Dagger",
   "item.moreweapons.diamond_dagger": "Diamond Dagger",
-  "item.moreweapons.netherite_dagger": "Netherite Dagger"
+  "item.moreweapons.netherite_dagger": "Netherite Dagger",
+  "item.moreweapons.wooden_katana": "Wooden Katana",
+  "item.moreweapons.stone_katana": "Stone Katana",
+  "item.moreweapons.iron_katana": "Iron Katana",
+  "item.moreweapons.golden_katana": "Golden Katana",
+  "item.moreweapons.diamond_katana": "Diamond Katana",
+  "item.moreweapons.netherite_katana": "Netherite Katana"
 }

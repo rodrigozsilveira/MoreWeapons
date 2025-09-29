@@ -29,6 +29,15 @@ public class ModItemGroups {
                     ModItems.DIAMOND_DAGGER,
                     ModItems.NETHERITE_DAGGER
             );
+
+            content.addAfter(ModItems.NETHERITE_DAGGER,
+                    ModItems.WOODEN_KATANA,
+                    ModItems.STONE_KATANA,
+                    ModItems.IRON_KATANA,
+                    ModItems.GOLDEN_KATANA,
+                    ModItems.DIAMOND_KATANA,
+                    ModItems.NETHERITE_KATANA
+            );
         });
     }
 }

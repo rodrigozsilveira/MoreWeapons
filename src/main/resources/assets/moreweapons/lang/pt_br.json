@@ -10,5 +10,11 @@
   "item.moreweapons.iron_dagger": "Adaga de Ferro",
   "item.moreweapons.golden_dagger": "Adaga de Ouro",
   "item.moreweapons.diamond_dagger": "Adaga de Diamante",
-  "item.moreweapons.netherite_dagger": "Adaga de Netherita"
+  "item.moreweapons.netherite_dagger": "Adaga de Netherita",
+  "item.moreweapons.wooden_katana": "Katana de Madeira",
+  "item.moreweapons.stone_katana": "Katana de Pedra",
+  "item.moreweapons.iron_katana": "Katana de Ferro",
+  "item.moreweapons.golden_katana": "Katana de Ouro",
+  "item.moreweapons.diamond_katana": "Katana de Diamante",
+  "item.moreweapons.netherite_katana": "Katana de Netherita"
 }

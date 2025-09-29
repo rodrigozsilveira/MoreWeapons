@@ -13,6 +13,8 @@ public class ModTags {
 
         public static final TagKey<Item> SCYTHES = createTag("scythes");
 
+        public static final TagKey<Item> KATANAS = createTag("katanas");
+
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(MoreWeapons.MOD_ID, name));
         }
