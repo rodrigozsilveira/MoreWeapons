@@ -1,16 +1,27 @@
 package ratao.moreweapons.item.weapons;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.ToolComponent;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 import java.util.List;
 
@@ -68,4 +79,27 @@ public class ScytheItem extends SwordItem {
                 )
                 .build();
     }
+
+    @Override
+    public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity miner) {
+        return !miner.isCreative();
+    }
+
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if (!attacker.getWorld().isClient) {
+            // Aumenta a área do sweep
+            double radius = 4.0D; // maior que o padrão (3.0D)
+            List<LivingEntity> entities = attacker.getWorld()
+                    .getEntitiesByClass(LivingEntity.class,
+                            target.getBoundingBox().expand(radius),
+                            e -> e != attacker && e.isAlive() && !attacker.isTeammate(e));
+
+            for (LivingEntity e : entities) {
+                e.damage(attacker.getDamageSources().playerAttack((PlayerEntity) attacker), 4.0F);
+            }
+        }
+        return super.postHit(stack, target, attacker);
+    }
+
 }

@@ -32,10 +32,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.STONE_SCYTHE)
                 .add(ModItems.WOODEN_SCYTHE);
 
-
-        getOrCreateTagBuilder(ItemTags.SWORD_ENCHANTABLE)
+        getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE)
                 .addTag(ModTags.Items.DAGGERS)
                 .addTag(ModTags.Items.SCYTHES);
 
+        // Enchantments
+        getOrCreateTagBuilder(ItemTags.SWORD_ENCHANTABLE)
+                .addTag(ModTags.Items.SCYTHES);
+        getOrCreateTagBuilder(ItemTags.WEAPON_ENCHANTABLE)
+                .addTag(ModTags.Items.DAGGERS);
     }
 }

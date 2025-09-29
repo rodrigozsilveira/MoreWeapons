@@ -15,18 +15,18 @@ public class ModItems {
     public static final Item WOODEN_SCYTHE = registerItem("wooden_scythe",
             new ScytheItem(ToolMaterials.WOOD, new Item.Settings()
                     .component(DataComponentTypes.ATTRIBUTE_MODIFIERS,
-                            ScytheItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -3.0F))
+                            ScytheItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -3.4F))
             ));
     public static final Item STONE_SCYTHE = registerItem("stone_scythe",
             new ScytheItem(ToolMaterials.STONE, new Item.Settings()
                     .component(DataComponentTypes.ATTRIBUTE_MODIFIERS,
-                            ScytheItem.createAttributeModifiers(ToolMaterials.STONE, 5, -3.0F))
+                            ScytheItem.createAttributeModifiers(ToolMaterials.STONE, 5, -3.4F))
             ));
 
     public static final Item IRON_SCYTHE = registerItem("iron_scythe",
             new ScytheItem(ToolMaterials.IRON, new Item.Settings()
                     .component(DataComponentTypes.ATTRIBUTE_MODIFIERS,
-                            ScytheItem.createAttributeModifiers(ToolMaterials.IRON, 5, -3.0F))
+                            ScytheItem.createAttributeModifiers(ToolMaterials.IRON, 5, -3.4F))
             ));
 
     public static final Item GOLDEN_SCYTHE = registerItem("golden_scythe",
@@ -38,55 +38,55 @@ public class ModItems {
     public static final Item DIAMOND_SCYTHE = registerItem("diamond_scythe",
             new ScytheItem(ToolMaterials.DIAMOND, new Item.Settings()
                     .component(DataComponentTypes.ATTRIBUTE_MODIFIERS,
-                            ScytheItem.createAttributeModifiers(ToolMaterials.DIAMOND, 5, -3.0F))
+                            ScytheItem.createAttributeModifiers(ToolMaterials.DIAMOND, 5, -3.4F))
             ));
 
     public static final Item NETHERITE_SCYTHE = registerItem("netherite_scythe",
             new ScytheItem(ToolMaterials.NETHERITE, new Item.Settings().fireproof()
                     .component(DataComponentTypes.ATTRIBUTE_MODIFIERS,
-                            ScytheItem.createAttributeModifiers(ToolMaterials.NETHERITE, 5, -3.0F))
+                            ScytheItem.createAttributeModifiers(ToolMaterials.NETHERITE, 5, -3.4F))
             ));
 
     // === DAGGERS ===
     public static final Item WOODEN_DAGGER = registerItem("wooden_dagger",
             new DaggerItem(ToolMaterials.WOOD, new Item.Settings()
                     .component(DataComponentTypes.ATTRIBUTE_MODIFIERS,
-                            DaggerItem.createAttributeModifiers(ToolMaterials.WOOD, 2, 3.0F))
+                            DaggerItem.createAttributeModifiers(ToolMaterials.WOOD, 2, 0.0F))
                     ,false
             ));
 
     public static final Item STONE_DAGGER = registerItem("stone_dagger",
             new DaggerItem(ToolMaterials.STONE, new Item.Settings()
                     .component(DataComponentTypes.ATTRIBUTE_MODIFIERS,
-                            DaggerItem.createAttributeModifiers(ToolMaterials.STONE, 2, 3.0F))
+                            DaggerItem.createAttributeModifiers(ToolMaterials.STONE, 2, 0.0F))
                     ,false
             ));
 
     public static final Item IRON_DAGGER = registerItem("iron_dagger",
             new DaggerItem(ToolMaterials.IRON, new Item.Settings()
                     .component(DataComponentTypes.ATTRIBUTE_MODIFIERS,
-                            DaggerItem.createAttributeModifiers(ToolMaterials.IRON, 2, 3.0F))
+                            DaggerItem.createAttributeModifiers(ToolMaterials.IRON, 2, 0.0F))
                     ,true
             ));
 
     public static final Item GOLDEN_DAGGER = registerItem("golden_dagger",
             new DaggerItem(ToolMaterials.GOLD, new Item.Settings()
                     .component(DataComponentTypes.ATTRIBUTE_MODIFIERS,
-                            DaggerItem.createAttributeModifiers(ToolMaterials.GOLD, 2, 3.2F)) // gold: +velocidade
+                            DaggerItem.createAttributeModifiers(ToolMaterials.GOLD, 2, 0.2F)) // gold: +velocidade
                     ,true
             ));
 
     public static final Item DIAMOND_DAGGER = registerItem("diamond_dagger",
             new DaggerItem(ToolMaterials.DIAMOND, new Item.Settings()
                     .component(DataComponentTypes.ATTRIBUTE_MODIFIERS,
-                            DaggerItem.createAttributeModifiers(ToolMaterials.DIAMOND, 2, 3.0F))
+                            DaggerItem.createAttributeModifiers(ToolMaterials.DIAMOND, 2, 0.0F))
                     ,true
             ));
 
     public static final Item NETHERITE_DAGGER = registerItem("netherite_dagger",
             new DaggerItem(ToolMaterials.NETHERITE, new Item.Settings().fireproof()
                     .component(DataComponentTypes.ATTRIBUTE_MODIFIERS,
-                            DaggerItem.createAttributeModifiers(ToolMaterials.NETHERITE, 2, 3.0F))
+                            DaggerItem.createAttributeModifiers(ToolMaterials.NETHERITE, 2, 0.0F))
                     ,true
             ));
 
