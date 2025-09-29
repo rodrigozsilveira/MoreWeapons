@@ -7,10 +7,19 @@ import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.ToolComponent;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.util.Identifier;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 
 import java.util.List;
 
@@ -47,5 +56,46 @@ public class KatanaItem extends SwordItem {
                 )
                 .build();
     }
+
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        if (!world.isClient) {
+            Vec3d lookDir = user.getMovement().normalize();
+
+            double dashStrength = 1.2;
+
+            user.addVelocity(
+                    lookDir.x * dashStrength,
+                    0.2,
+                    lookDir.z * dashStrength
+            );
+
+            user.velocityModified = true;
+
+            user.getItemCooldownManager().set(this, 20);
+
+            world.playSound(
+                    null,
+                    user.getBlockPos(),
+                    SoundEvents.ENTITY_ENDER_DRAGON_FLAP,
+                    SoundCategory.PLAYERS,
+                    0.5F,
+                    1.2F
+            );
+
+            ((ServerWorld)world).spawnParticles(
+                    ParticleTypes.CLOUD,
+                    user.getX(), user.getY(), user.getZ(),
+                    20,
+                    0.3, 0.1, 0.3,
+                    0.05
+            );
+        }
+
+        return TypedActionResult.success(user.getStackInHand(hand));
+    }
+
+
+
 
 }

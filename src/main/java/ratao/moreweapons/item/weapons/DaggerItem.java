@@ -5,22 +5,18 @@ import net.minecraft.block.Blocks;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.ToolComponent;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import ratao.moreweapons.MoreWeapons;
 import ratao.moreweapons.effect.ModEffects;
 
 import java.util.List;
@@ -88,11 +84,9 @@ public class DaggerItem extends ToolItem {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        // Damage the dagger by 1 point when it hits an entity
         stack.damage(1, attacker, EquipmentSlot.MAINHAND); // simplified below
-        // Apply bleeding if allowed
         if (!target.getWorld().isClient && this.canBleed) {
-            target.addStatusEffect(new StatusEffectInstance(ModEffects.BLEEDING, 200, 0));
+            target.addStatusEffect(new StatusEffectInstance(ModEffects.BLEEDING, 150, 0));
         }
         return true;
     }
