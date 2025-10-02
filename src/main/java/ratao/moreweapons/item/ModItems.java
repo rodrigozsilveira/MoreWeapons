@@ -10,6 +10,7 @@ import ratao.moreweapons.MoreWeapons;
 import ratao.moreweapons.item.weapons.DaggerItem;
 import ratao.moreweapons.item.weapons.KatanaItem;
 import ratao.moreweapons.item.weapons.ScytheItem;
+import ratao.moreweapons.item.weapons.StaffItem;
 
 public class ModItems {
 
@@ -127,8 +128,9 @@ public class ModItems {
                             KatanaItem.createAttributeModifiers(ToolMaterials.NETHERITE, 2, -1.2F))
             ));
 
-
-
+    public static final Item STAFF = registerItem("lightning_staff",
+            new StaffItem(new Item.Settings())
+            );
 
     private static Item registerItem (String name, Item item){
         return Registry.register(Registries.ITEM, Identifier.of(MoreWeapons.MOD_ID, name), item );

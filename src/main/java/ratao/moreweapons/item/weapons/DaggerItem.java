@@ -93,7 +93,7 @@ public class DaggerItem extends ToolItem {
 
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
-        if (state.getHardness(world, pos) != 0) {       // don’t damage on instant-break blocks
+        if (state.getHardness(world, pos) != 0) {
             stack.damage(1, miner, EquipmentSlot.MAINHAND);
         }
         return true;

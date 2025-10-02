@@ -38,6 +38,9 @@ public class ModItemGroups {
                     ModItems.DIAMOND_KATANA,
                     ModItems.NETHERITE_KATANA
             );
+
+            content.addAfter(ModItems.NETHERITE_DAGGER,
+                    ModItems.STAFF);
         });
     }
 }
