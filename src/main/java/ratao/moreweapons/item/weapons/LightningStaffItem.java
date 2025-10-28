@@ -7,25 +7,26 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
 import java.util.List;
 
-public class StaffItem extends Item {
-    private static final int MAX_CHARGE = 40; // ~2 segundos para carregar
+public class LightningStaffItem extends Item {
+    private static final int MAX_CHARGE = 40;
 
-    private static final double TARGET_SEARCH_RADIUS = 3.0; // raio de busca ao redor do ponto alvo
+    private static final double TARGET_SEARCH_RADIUS = 3.0;
     private static final double FORWARD_DISTANCE = 5.0;
 
-    public StaffItem(Settings settings) {
+    public LightningStaffItem(Settings settings) {
         super(settings);
     }
 
@@ -42,8 +43,53 @@ public class StaffItem extends Item {
 
     @Override
     public UseAction getUseAction(ItemStack stack) {
-        return UseAction.BLOCK;
+        return UseAction.BOW;
     }
+    @Override
+    public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
+        if (!world.isClient) {
+            super.usageTick(world, user, stack, remainingUseTicks);
+            return;
+        }
+
+        int chargeTime = MAX_CHARGE - remainingUseTicks;
+
+        if (chargeTime < 10) {
+            super.usageTick(world, user, stack, remainingUseTicks);
+            return;
+        }
+
+        Random random = world.getRandom();
+
+
+        // setup for particle origin pos
+        Vec3d eyePos = user.getEyePos();
+        Vec3d lookVec = user.getRotationVec(1.0F); // Vetor para FRENTE
+        Vec3d rightVec = lookVec.crossProduct(new Vec3d(0, 1, 0)).normalize();
+        Vec3d upVec = rightVec.crossProduct(lookVec);
+
+        // particle origin
+        double forwardOffset = 0.6; // how forward to the eyes pos
+        double sideOffset = 0.35;   // how right to the eyes pos
+        double upOffset = 0.1;   // how up to the eyes pos
+
+        Vec3d particleOrigin = eyePos
+                .add(lookVec.multiply(forwardOffset)) // goes forward
+                .add(rightVec.multiply(sideOffset))  // goes right
+                .add(upVec.multiply(upOffset));      // goes up
+
+        if (chargeTime <= 15) {
+            for (int i = 0; i < 3; i++) {
+                world.addParticle(ParticleTypes.ENCHANT,
+                        particleOrigin.x + (random.nextDouble() - 0.5) * 0.5,
+                        particleOrigin.y + (random.nextDouble() - 0.5) * 0.5,
+                        particleOrigin.z + (random.nextDouble() - 0.5) * 0.5,
+                        0.0, 0.01, 0.0);
+            }
+        }
+        super.usageTick(world, user, stack, remainingUseTicks);
+    }
+
 
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
@@ -59,32 +105,27 @@ public class StaffItem extends Item {
         LivingEntity target = findClosestEnemy(world, player);
 
         if (target != null) {
-            // Invoca o raio no alvo
             summonLightning(world, target);
 
-            // Danifica o item
+            // item durability
             stack.damage(1, user, EquipmentSlot.MAINHAND);
 
-            // Adiciona um cooldown para não ser usado repetidamente (ex: 3 segundos)
+            // 3 second cooldown
             player.getItemCooldownManager().set(this, 60);
 
-            // Adiciona som para o jogador
             world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.PLAYERS, 1.0F, 1.0F);
         }
     }
 
-    /**
-     * Encontra a entidade viva mais próxima em um raio ao redor do jogador.
-     */
     private LivingEntity findClosestEnemy(World world, PlayerEntity player) {
-        // Pega a posição dos olhos e direção do jogador
-        Vec3d eyePos = player.getEyePos();                // posição dos olhos
-        Vec3d lookDir = player.getRotationVec(1.0F).normalize(); // direção que ele está olhando
+        // player eye position, and direction
+        Vec3d eyePos = player.getEyePos();
+        Vec3d lookDir = player.getRotationVec(1.0F).normalize();
 
-        // Calcula o ponto alvo a 5 blocos na direção que o jogador olha
+        // set the center point of rect search 5 blocks in front of player
         Vec3d targetPoint = eyePos.add(lookDir.multiply(FORWARD_DISTANCE));
 
-        // Cria uma caixa de busca centrada no ponto alvo
+        // rect search
         Box searchBox = new Box(
                 targetPoint.x - TARGET_SEARCH_RADIUS,
                 targetPoint.y - TARGET_SEARCH_RADIUS,
@@ -94,7 +135,6 @@ public class StaffItem extends Item {
                 targetPoint.z + TARGET_SEARCH_RADIUS
         );
 
-        // Busca entidades vivas dentro do raio
         List<LivingEntity> nearbyEntities = world.getNonSpectatingEntities(LivingEntity.class, searchBox);
 
         LivingEntity closestTarget = null;
@@ -103,7 +143,7 @@ public class StaffItem extends Item {
         for (LivingEntity entity : nearbyEntities) {
             if (entity == player || !entity.isAlive()) continue;
 
-            // mede a distância a partir do ponto alvo, não do jogador
+            // distance from rect center point
             double distanceSq = entity.squaredDistanceTo(targetPoint);
             if (distanceSq < minDistanceSq && player.canSee(entity)) {
                 minDistanceSq = distanceSq;
@@ -113,6 +153,7 @@ public class StaffItem extends Item {
 
         return closestTarget;
     }
+
 
     private void summonLightning(World world, LivingEntity target) {
         LightningEntity lightning = new LightningEntity(EntityType.LIGHTNING_BOLT, world);

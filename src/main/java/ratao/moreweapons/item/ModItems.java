@@ -7,10 +7,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import ratao.moreweapons.MoreWeapons;
-import ratao.moreweapons.item.weapons.DaggerItem;
-import ratao.moreweapons.item.weapons.KatanaItem;
-import ratao.moreweapons.item.weapons.ScytheItem;
-import ratao.moreweapons.item.weapons.StaffItem;
+import ratao.moreweapons.item.weapons.*;
 
 public class ModItems {
 
@@ -128,9 +125,13 @@ public class ModItems {
                             KatanaItem.createAttributeModifiers(ToolMaterials.NETHERITE, 2, -1.2F))
             ));
 
-    public static final Item STAFF = registerItem("lightning_staff",
-            new StaffItem(new Item.Settings())
+    public static final Item LIGHTNING_STAFF = registerItem("lightning_staff",
+            new LightningStaffItem(new Item.Settings())
             );
+
+    public static final Item FIRE_STAFF = registerItem("fire_staff",
+            new FireStaffItem(new Item.Settings())
+    );
 
     private static Item registerItem (String name, Item item){
         return Registry.register(Registries.ITEM, Identifier.of(MoreWeapons.MOD_ID, name), item );

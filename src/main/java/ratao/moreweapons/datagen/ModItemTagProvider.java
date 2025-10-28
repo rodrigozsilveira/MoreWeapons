@@ -40,6 +40,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.STONE_KATANA)
                 .add(ModItems.WOODEN_KATANA);
 
+        getOrCreateTagBuilder(ModTags.Items.STAFFS)
+                .add(ModItems.LIGHTNING_STAFF);
+
         getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE)
                 .addTag(ModTags.Items.DAGGERS)
                 .addTag(ModTags.Items.SCYTHES)

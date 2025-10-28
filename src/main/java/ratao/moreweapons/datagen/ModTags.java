@@ -15,11 +15,13 @@ public class ModTags {
 
         public static final TagKey<Item> KATANAS = createTag("katanas");
 
+        public static final TagKey<Item> STAFFS = createTag("staffs");
+
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(MoreWeapons.MOD_ID, name));
         }
 
-        public static final TagKey<Item> STAFFS = createTag("staffs");
+
     }
 
     public static class Blocks {

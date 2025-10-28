@@ -40,7 +40,9 @@ public class ModItemGroups {
             );
 
             content.addAfter(ModItems.NETHERITE_DAGGER,
-                    ModItems.STAFF);
+                    ModItems.LIGHTNING_STAFF,
+                    ModItems.FIRE_STAFF);
+
         });
     }
 }
