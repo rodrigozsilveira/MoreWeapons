@@ -1,5 +1,6 @@
 package ratao.moreweapons.item.weapons;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LightningEntity;
@@ -13,9 +14,13 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -102,10 +107,47 @@ public class LightningStaffItem extends Item {
             return;
         }
 
-        LivingEntity target = findClosestEnemy(world, player);
+        Vec3d targetPosition = null; // Vamos armazenar a posição do alvo aqui
 
-        if (target != null) {
-            summonLightning(world, target);
+        // 1. Tentar encontrar um inimigo
+        LivingEntity enemyTarget = findClosestEnemy(world, player);
+
+        if (enemyTarget != null) {
+            // Alvo encontrado: um inimigo
+            targetPosition = enemyTarget.getPos();
+        } else {
+            // 2. Alvo inimigo não encontrado, procurar por um Bloco de Pararraios
+            double maxRaycastDistance = 4.0; // O quão longe o cajado pode "ver" um bloco
+            Vec3d eyePos = player.getEyePos();
+            Vec3d lookDir = player.getRotationVec(1.0F);
+            Vec3d endPos = eyePos.add(lookDir.multiply(maxRaycastDistance));
+
+            // Configura o raycast
+            RaycastContext context = new RaycastContext(
+                    eyePos,
+                    endPos,
+                    RaycastContext.ShapeType.OUTLINE, // Checa a "hitbox" do bloco
+                    RaycastContext.FluidHandling.NONE,  // Ignora água/lava
+                    player // Ignora o próprio jogador
+            );
+
+            BlockHitResult hitResult = world.raycast(context);
+
+            if (hitResult.getType() == HitResult.Type.BLOCK) {
+                BlockPos blockPos = hitResult.getBlockPos();
+                // Verifica se o bloco atingido é um pararraios
+                if (world.getBlockState(blockPos).isOf(Blocks.LIGHTNING_ROD)) {
+                    // Alvo encontrado: um pararraios!
+                    // Usamos o centro do bloco como alvo
+                    targetPosition = Vec3d.ofCenter(blockPos);
+                }
+            }
+        }
+
+        // 3. Se tivermos um alvo (inimigo OU pararraios), dispare o raio!
+        if (targetPosition != null) {
+            // Chame a nova função que usa Vec3d
+            summonLightningAt(world, targetPosition);
 
             // item durability
             stack.damage(1, user, EquipmentSlot.MAINHAND);
@@ -115,6 +157,7 @@ public class LightningStaffItem extends Item {
 
             world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.PLAYERS, 1.0F, 1.0F);
         }
+        // Se targetPosition ainda for null, nada acontece (o cajado "falha")
     }
 
     private LivingEntity findClosestEnemy(World world, PlayerEntity player) {
@@ -155,9 +198,13 @@ public class LightningStaffItem extends Item {
     }
 
 
-    private void summonLightning(World world, LivingEntity target) {
+    /**
+     * Invoca um raio em uma posição específica do mundo.
+     */
+    private void summonLightningAt(World world, Vec3d position) {
         LightningEntity lightning = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
-        lightning.setPosition(target.getPos());
+        // Define a posição do raio para o Vec3d fornecido
+        lightning.setPosition(position);
         world.spawnEntity(lightning);
     }
 

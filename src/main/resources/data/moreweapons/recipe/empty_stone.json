@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    "xzx",
+    " x "
+  ],
+  "key": {
+    "z": { "item": "minecraft:nether_star" },
+    "x": { "item": "minecraft:stone" }
+  },
+  "result": {
+    "id": "moreweapons:empty_stone",
+    "count": 1
+  }
+}

@@ -17,5 +17,9 @@
   "item.moreweapons.golden_katana": "Katana de Ouro",
   "item.moreweapons.diamond_katana": "Katana de Diamante",
   "item.moreweapons.netherite_katana": "Katana de Netherita",
-  "item.moreweapons.lightning_staff": "Cajado de Relampago"
+  "item.moreweapons.lightning_staff": "Cajado de Relampago",
+  "item.moreweapons.fire_staff": "Cajado de Fogo",
+  "item.moreweapons.lightning_stone": "Pedra de Relampago",
+  "item.moreweapons.fire_stone": "Pedra de Fogo",
+  "item.moreweapons.empty_stone": "Pedra Vazia"
 }

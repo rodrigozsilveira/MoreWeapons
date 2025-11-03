@@ -40,17 +40,24 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.STONE_KATANA)
                 .add(ModItems.WOODEN_KATANA);
 
+        getOrCreateTagBuilder(ModTags.Items.MAGIC_STONES)
+                .add(ModItems.FIRE_STONE)
+                .add(ModItems.LIGHTNING_STONE);
+
         getOrCreateTagBuilder(ModTags.Items.STAFFS)
-                .add(ModItems.LIGHTNING_STAFF);
+                .add(ModItems.LIGHTNING_STAFF)
+                .add(ModItems.FIRE_STAFF);
 
         getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE)
                 .addTag(ModTags.Items.DAGGERS)
                 .addTag(ModTags.Items.SCYTHES)
+                .addTag(ModTags.Items.STAFFS)
                 .addTag(ModTags.Items.KATANAS);
 
         getOrCreateTagBuilder(ItemTags.SWORD_ENCHANTABLE)
                 .addTag(ModTags.Items.SCYTHES)
                 .addTag(ModTags.Items.KATANAS);
+
         getOrCreateTagBuilder(ItemTags.WEAPON_ENCHANTABLE)
                 .addTag(ModTags.Items.DAGGERS);
     }

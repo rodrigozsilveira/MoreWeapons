@@ -18,5 +18,9 @@
   "item.moreweapons.golden_katana": "Golden Katana",
   "item.moreweapons.diamond_katana": "Diamond Katana",
   "item.moreweapons.netherite_katana": "Netherite Katana",
-  "item.moreweapons.lightning_staff": "Lightning Staff"
+  "item.moreweapons.lightning_staff": "Lightning Staff",
+  "item.moreweapons.fire_staff": "Fire Staff",
+  "item.moreweapons.lightning_stone": "Lightning Stone",
+  "item.moreweapons.fire_stone": "Fire Stone",
+  "item.moreweapons.empty_stone": "Empty Stone"
 }

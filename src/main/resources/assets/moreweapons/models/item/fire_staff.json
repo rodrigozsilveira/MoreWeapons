@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "moreweapons:item/lightning_staff"
+    "layer0": "moreweapons:item/fire_staff"
   },
   "display": {
     "thirdperson_righthand": {

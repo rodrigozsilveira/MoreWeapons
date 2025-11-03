@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  #",
+    " | ",
+    "|  "
+  ],
+  "key": {
+    "#": { "item": "moreweapons:lightning_stone" },
+    "|": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "id": "moreweapons:lightning_staff",
+    "count": 1
+  }
+}

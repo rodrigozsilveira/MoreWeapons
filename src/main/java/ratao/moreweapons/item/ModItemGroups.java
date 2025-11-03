@@ -44,5 +44,14 @@ public class ModItemGroups {
                     ModItems.FIRE_STAFF);
 
         });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {
+
+            content.addAfter(Items.DIAMOND,
+                    ModItems.EMPTY_STONE,
+                    ModItems.LIGHTNING_STONE,
+                    ModItems.FIRE_STONE);
+
+        });
     }
 }
