@@ -11,7 +11,7 @@ This mod creates basic vanilla-like weapons with different caracteristics
 ### 2. Katanas
 
 * Dash Ability
-* Sane Range as Sword
+* Same Range as Sword
 * A little faster Attack Speed
 
 ### 3. Scythes
