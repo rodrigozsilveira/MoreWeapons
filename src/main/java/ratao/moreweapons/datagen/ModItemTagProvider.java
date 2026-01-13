@@ -60,5 +60,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.WEAPON_ENCHANTABLE)
                 .addTag(ModTags.Items.DAGGERS);
+
+        getOrCreateTagBuilder(ItemTags.SWORDS)
+                .addTag(ModTags.Items.DAGGERS)
+                .addTag(ModTags.Items.KATANAS)
+                .addTag(ModTags.Items.SCYTHES);
     }
 }
