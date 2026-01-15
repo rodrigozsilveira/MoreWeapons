@@ -45,7 +45,7 @@ MoreWeapons is a Fabric mod for **Minecraft 1.21+** that introduces vanilla-styl
 ![Image](https://github.com/user-attachments/assets/b9818b3e-27ac-43f1-8726-cf47531d4bd7)
 ![Image](https://github.com/user-attachments/assets/7e913ddf-0842-46fb-806b-6dea5e30173c)
 ![Image](https://github.com/user-attachments/assets/7d98d471-7b57-4335-a3c1-47eb4b87e959)
-![Image](https://github.com/user-attachments/assets/6754cd1b-fb07-42e2-b502-2858acd6a0f8)
+
 
 ---
 
