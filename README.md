@@ -67,8 +67,7 @@ Each weapon type features different mechanics and stats.
 
 ## Gameplay Video
 
-<p align="center">
-  <a href="https://youtu.be/vpfCn5kDxNc" target="_blank">
-    <img src="https://img.youtube.com/vi/vpfCn5kDxNc/maxresdefault.jpg" width="720" alt="Gameplay Video" />
-  </a>
-</p>
+## Gameplay Video
+
+[![](https://img.youtube.com/vi/vpfCn5kDxNc/maxresdefault.jpg)](https://youtu.be/vpfCn5kDxNc)
+
