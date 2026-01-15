@@ -72,7 +72,8 @@ public class KatanaItem extends SwordItem {
 
             user.velocityModified = true;
 
-            user.getItemCooldownManager().set(this, 20);
+            // katana dash cooldown
+            user.getItemCooldownManager().set(this, 100);
 
             world.playSound(
                     null,
