@@ -7,26 +7,25 @@ Each weapon type features different mechanics and stats.
   <img width="854" src="https://github.com/user-attachments/assets/818f3d6b-7fda-4e29-823c-9e0b221f38eb" alt="Main Showcase" />
 </p>
 
----
 
 ## Weapon Types
 
 ### Daggers
-- Increased Attack Speed
-- Bleeding Effect (damage over time)
-- Shorter Range
+ Increased Attack Speed
+ Bleeding Effect (damage over time)
+ Shorter Range
 
 ### Katanas
-- Dash ability on right mouse button
-- Same reach as a vanilla sword
-- Slightly higher attack speed than a sword
+ Dash ability on right mouse button
+ Same reach as a vanilla sword
+ Slightly higher attack speed than a sword
 
 ### Scythes
-- Increased Range
-- Greatly increased sweep attack hitbox
-- Decreased attack speed
+ Increased Range
+ Greatly increased sweep attack hitbox
+ Decreased attack speed
 
----
+
 
 ## Crafts and Smithing Table Upgrade
 
@@ -40,7 +39,6 @@ Each weapon type features different mechanics and stats.
   <img width="400" src="https://github.com/user-attachments/assets/d5b5db32-29e4-44fb-ad82-26e2f7fca17a" />
 </p>
 
----
 
 ## Staff Stones
 
@@ -52,7 +50,7 @@ Each weapon type features different mechanics and stats.
   <img width="260" src="https://github.com/user-attachments/assets/7d98d471-7b57-4335-a3c1-47eb4b87e959" />
 </p>
 
----
+
 
 ## Staffs
 
@@ -64,8 +62,6 @@ Each weapon type features different mechanics and stats.
 </p>
 
 ---
-
-## Gameplay Video
 
 ## Gameplay Video
 
