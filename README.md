@@ -11,19 +11,13 @@ Each weapon type features different mechanics and stats.
 ## Weapon Types
 
 ### Daggers
- Increased Attack Speed
- Bleeding Effect (damage over time)
- Shorter Range
+ Increased Attack Speed, Bleeding Effect (damage over time) and Shorter Range
 
 ### Katanas
- Dash ability on right mouse button
- Same reach as a vanilla sword
- Slightly higher attack speed than a sword
+ Dash ability on right mouse button, Same reach as a vanilla sword and Slightly higher attack speed than a sword
 
 ### Scythes
- Increased Range
- Greatly increased sweep attack hitbox
- Decreased attack speed
+ Increased Range, Greatly increased sweep attack hitbox and Decreased attack speed
 
 
 
@@ -42,7 +36,7 @@ Each weapon type features different mechanics and stats.
 
 ## Staff Stones
 
-- By crafting an empty stone and filling it with an element, you create Staff Stones.
+ By crafting an empty stone and filling it with an element, you create Staff Stones.
 
 <p align="center">
   <img width="260" src="https://github.com/user-attachments/assets/b9818b3e-27ac-43f1-8726-cf47531d4bd7" />
@@ -54,7 +48,7 @@ Each weapon type features different mechanics and stats.
 
 ## Staffs
 
-- Spell casting weapon
+ Spell casting weapon
 
 <p align="center">
   <img width="400" src="https://github.com/user-attachments/assets/6754cd1b-fb07-42e2-b502-2858acd6a0f8" />
